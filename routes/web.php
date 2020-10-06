@@ -13,9 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/about', function () {
+    return view('about',['articles'=>App\Article::latest()->get()
+    ]);
+});
+Route::get('/articles','ArticlesController@index');
+Route::post('/articles','ArticlesController@store');
+Route::get('/articles/create','ArticlesController@create');
+
+Route::get('/articles/{article}','ArticlesController@show');
+
+
 //Route::get('/test', function () {
 //    return view('test');
 //});
