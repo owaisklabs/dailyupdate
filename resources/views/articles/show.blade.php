@@ -9,6 +9,11 @@
 
                 <p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
                     <p>{{$articles->body}}</p>
+                    <p>
+                        @foreach($articles->tags as $tag)
+                            <a href="/articles?tag={{$tag->name}}">{{$tag->name}}</a>
+                        @endforeach
+                    </p>
                 </div>
 
         </div>
